@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ресторан-лаунж Мята Signature Tashkent City — эксклюзивная кухня в центре Ташкента. Забронируйте столик онлайн!">
+    <meta name="keywords" content="ресторан ташкент, мята бар, UZS цены, бронирование ресторана Ташкент, Мята Signature Tashkent City">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Мята Signature Tashkent City | Ресторан & Лаунж-бар</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (включённый через CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        accent: '#7c3aed',
+                        secondary: '#0f172a',
+                        tertiary: '#475569'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        display: ['Playfair Display', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #0a0f1d;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #a78bfa, #60a5fa, #3b82f6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .btn-primary {
+            @apply px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105;
+        }
+        
+        .btn-glass {
+            background: rgba(124, 58, 237, 0.2);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            color: #e9d5ff;
+        }
+        
+        .card-animate {
+            animation: floatCard 4s ease-in-out infinite;
+        }
+        
+        @keyframes floatCard {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .menu-item:hover {
+            border-color: rgba(124, 58, 237, 0.5);
+            background: rgba(124, 58, 237, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        @media (max-width: 768px) {
+            .grid-menu {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 1.5rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-display gradient-text tracking-wide">
+                Мята Signature Tashkent City
+            </a>
+            <button onclick="toggleMobileMenu()" class="lg:hidden text-white hover:text-accent transition-colors" aria-label="Меню">
+                <svg class="w-6 h-6" fill="none"

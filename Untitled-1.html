@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nargiza Erkaboyeva | Plastik Kartani Aktivlashtirish</title>
+    <meta name="description" content="Farovonlik energiyasini va plastik kartani aktivlantshtirish xizmati. Nargiza Erkaboyeva".
+    
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* === БАЗОВЫЕ СТИЛИ (RESET) === */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        
+        :root {
+            --primary-gradient: linear-gradient(135deg, #FF6BCB 0%, #4969E1 100%);
+            --accent-color: #FF2E8C;
+            --dark-bg: #0F0A2F;
+            --light-bg: #1A163D;
+            --text-main: #ffffff;
+            --text-light: rgba(255, 255, 255, 0.7);
+        }
+
+        html, body { font-family: 'Poppins', sans-serif; background: var(--dark-bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+
+        /* === АНИМИРОВАННЫЙ ФОН === */
+        .animated-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: radial-gradient(ellipse at center, #2D1B69 0%, #0F0A2F 100%);
+            z-index: -1;
+        }
+
+        .floating-shapes { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; pointer-events: none; z-index: -1; overflow: hidden; }
+        
+        .shape { position: absolute; width: 300px; height: 300px; background: rgba(255, 91, 219, 0.05); border-radius: 50%; animation: float 6s ease-in-out infinite; }
+        .shape:nth-child(1) { width: 250px; height: 250px; top: -30px; left: -30px; animation-delay: 0s; }
+        .shape:nth-child(2) { width: 400px; height: 400px; bottom: 100px; right: -100px; animation-delay: 1s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        /* === HEADER === */
+        header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 20px; backdrop-filter: blur(15px);
+            background: rgba(15, 10, 47, 0.95); border-bottom: 1px solid rgba(255, 91, 219, 0.2);
+        }
+
+        .nav-container {
+            display: flex; justify-content: space-between; align-items: center;
+            max-width: 1400px; margin: 0 auto; padding: 0 30px;
+        }
+
+        .logo {
+            font-size: 28px; font-weight: 800; color: var(--primary-gradient);
+            text-decoration: none; position: relative; overflow: hidden;
+        }
+
+        .logo span { background: var(--accent-color); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* === ЯЗЫКОВОЙ МОДУЛЬ (ФИЛЬТРАЦИЯ ПО КАЖДОМУ ЭЛЕМЕНТУ) === */
+        .lang-switcher {
+            position: relative; margin-left: 40px; display: none;
+        }
+
+        .lang-btn {
+            background: rgba(255, 91, 219, 0.2); color: var(--accent-color);
+            border: 1px solid var(--primary-gradient); padding: 10px 24px;
+            border-radius: 30px; cursor: pointer; font-size: 16px; font-weight: 500;
+            transition: all 0.3s ease; z-index: 2;
+        }
+
+        .lang-btn:hover { background: var(--primary-gradient); color: white; transform: scale(1.05); box-shadow: 0 8px 30px rgba(255, 91, 219, 0.4); }
+
+        .lang-dropdown {
+            position: absolute; top: calc(100% + 10px); right: 0;
+            min-width: 180px; background: rgba(26, 22, 61, 0.95);
+            backdrop-filter: blur(20px); border-radius: 20px;
+            display: none; padding: 12px 0; box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .lang-btn:hover .lang-dropdown { display: block; animation: slideDown 0.3s ease; }
+
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .lang-option {
+            display: block; padding: 14px 28px; color: var(--text-main);
+            text-decoration: none; font-size: 15px; transition: all 0.3s ease; border-bottom: 1px solid rgba(255,91,219,0.1);
+        }
+
+        .lang-option:hover { background: var(--primary-gradient); color: white; padding-left: 35px; }
+
+        /* === HERO SECTION (ПЕРВЫЙ БАННЕР) === */
+        .hero {
+            position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            padding: 140px 30px 80px; text-align: center; overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 900px; margin: 0 auto; z-index: 10; position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 12px; background: rgba(255, 91, 219, 0.1);
+            padding: 14px 30px; border-radius: 30px; margin-bottom: 40px; backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 91, 219, 0.3);
+        }
+
+        .hero-badge i { color: var(--accent-color); font-size: 26px; }
+
+        .hero h1 {
+            font-size: clamp(40px, 7vw, 68px); font-weight: 900; line-height: 1.1;
+            margin-bottom: 30px; letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: clamp(20px, 3vw, 26px); margin-bottom: 50px; opacity: 0.9;
+            max-width: 800px; margin-left: auto; margin-right: auto;
+        }
+
+        .hero-highlight { color: var(--accent-color); font-weight: 700; display: block; margin-top: 15px; }
+
+        /* === КАРТОЧКИ С УСЛУГАМИ (ПСИХОЛОГИЧЕСКИЙ ЭЛЕМЕНТ) === */
+        .services-section { padding: 80px 20px; background: linear-gradient(145deg, rgba(26, 22, 61, 0.9), rgba(15, 10, 47, 0.95)); }
+
+        .section-title {
+            font-size: clamp(36px, 5vw, 52px); font-weight: 800; text-align: center; margin-bottom: 60px;
+        }
+
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+
+        .service-card {
+            background: linear-gradient(145deg, rgba(43, 27, 105, 0.9), rgba(26, 22, 61, 0.95));
+            backdrop-filter: blur(20px); border-radius: 30px; padding: 50px;
+            transition: all 0.4s ease; border: 1px solid rgba(255, 91, 219, 0.2);
+        }
+
+        .service-card:hover { transform: translateY(-20px) scale(1.03); box-shadow: 0 30px 60px rgba(255, 91, 219, 0.2); border-color: var(--accent-color); }
+
+        .service-icon { width: 80px; height: 80px; background: var(--primary-gradient); border-radius: 25px; display: flex; align-items: center; justify-content: center; margin-bottom: 30px; box-shadow: 0 15px 40px rgba(255, 91, 219, 0.3); }
+        
+        .service-icon i { font-size: 38px; color: white; text-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+
+        .service-card h3 { font-size: clamp(26px, 3vw, 34px); margin-bottom: 15px; font-weight: 700; }
+        
+        .service-card p { opacity: 0.85; font-size: 18px; line-height: 1.7; }
+
+        /* === ПРИМЕРНЫЙ ЦЕНТРАЛЬНЫЙ ЭЛЕМЕНТ (ВИЗУАЛ) === */
+        .visual-element {
+            position: relative; width: 100%; height: 500px; margin: 60px auto 40px; max-width: 800px; display: flex; align-items: center; justify-content: center; overflow: hidden;
+        }
+
+        .mind-cloud {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; opacity: 0.9; animation: mind-drift 8s ease-in-out infinite; filter: drop-shadow(0 0 30px rgba(255, 91, 219, 0.5));
+        }
+
+        .mind-cloud i { font-size: 140px; color: var(--accent-color); display: block; margin-bottom: 20px; text-shadow: 0 0 30px rgba(255, 91, 219, 0.8); }
+        
+        .mind-cloud p { font-size: 24px; color: var(--text-main); font-weight: 600; margin-top: 20px; opacity: 0.7; }
+
+        @keyframes mind-drift {
+            0%, 100% { transform: translate(-50%, -50%) rotate(-5deg); }
+            50% { transform: translate(-50%, -55%) rotate(5deg); }
+        }
+
+        /* === ЦЕНА (ПРИМЕРНАЯ) === */
+        .price-section { padding: 100px 20px; background: var(--dark-bg); text-align: center; }
+
+        .price-box {
+            background: linear-gradient(145deg, rgba(43, 27, 105, 0.9), rgba(26, 22, 61, 0.95));
+            backdrop-filter: blur(20px); border-radius: 40px; padding: 80px;
+            max-width: 700px; margin: 0 auto; border: 2px solid var(--accent-color);
+            box-shadow: 0 30px 60px rgba(255, 91, 219, 0.2), inset 0 0 40px rgba(0,0,0,0.3);
+        }
+
+        .price-tag { font-size: clamp(48px, 7vw, 64px); color: var(--accent-color); font-weight: 900; margin: 20px 0; }
+        
+        .price-label { opacity: 0.7; font-size: 20px; margin-bottom: 40px; }
+
+        /* === КОНТАКТЫ (ОБЪЕДИНЕННЫЕ) === */
+        .contacts-section { padding: 100px 20px; background: linear-gradient(135deg, rgba(43, 27, 105, 0.9), rgba(26, 22, 61, 0.95)); text-align: center; position: relative; }
+
+        .contacts-container { max-width: 800px; margin: 0 auto; padding: 0 30px; }
+
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
+
+        .contact-card {
+            background: rgba(26, 22, 61, 0.9); backdrop-filter: blur(15px); border-radius: 30px; padding: 40px;
+            transition: all 0.4s ease; cursor: pointer; text-decoration: none; color: var(--text-main); border: 1px solid rgba(255, 91, 219, 0.2);
+            display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 140px;
+        }
+
+        .contact-card:hover { transform: scale(1.05) translateY(-8px); box-shadow: 0 25px 50px rgba(255, 91, 219, 0.3); border-color: var(--accent-color); background: var(--primary-gradient); }
+
+        .contact-icon { font-size: 48px; margin-bottom: 20px; transition: all 0.3s ease; }
+        
+        .contact-card:hover .contact-icon { transform: scale(1.2) rotate(5deg); color: white; text-shadow: 0 4px 20px rgba(255,91,219,0.8); }
+
+        .contact-card h3 { font-size: 24px; margin-bottom: 10px; font-weight: 700; }
+        
+        .contact-card p { opacity: 0.7; font-size: 18px; line-height: 1.6; text-align: center; }
+
+        /* === FOOTER === */
+        footer { background: rgba(15, 10, 47, 0.98); padding: 60px 20px 40px; text-align: center; position: relative; border-top: 1px solid rgba(255, 91, 219, 0.1); }
+
+        .footer-content { max-width: 900px; margin: 0 auto; padding: 0 30px; }
+
+        .footer-title { font-size: clamp(24px, 3vw, 36px); color: var(--accent-color); font-weight: 700; margin-bottom: 30px; }
+
+        .copyright { opacity: 0.5; font-size: 16px; margin-top: 40px; }
+
+        /* === АНИМАЦИИ И ЭФФЕКТЫ === */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        .animate-on-scroll { opacity: 0; transition: all 0.6s ease; }
+        
+        /* === МОБИЛЬНЫЕ РЕАКЦИИ (ОПТИМИЗИРОВАННЫЕ) === */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: clamp(32px, 6vw, 48px); }
+            
+            .hero p { font-size: clamp(18px, 3vw, 22px); }
+
+            .lang-btn { padding: 10px 16px; font-size: 14px; }
+            .contact-card h3 { font-size: 20px; }
+            .visual-element { height: 350px; }
+            
+            /* Скрыть язык на мобильных */
+            .lang-switcher { display: none; }
+        }
+
+        /* === ЭКСПОРТ КОПИРОВАТЬ (СКРИПТЫ) === */
+        @media (max-width: 768px) {
+            .contact-card:hover { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ФОН -->
+    <div class="animated-bg"></div>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- HEADER (С ЯЗЫКОМ) -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="goToTop()">Nargiza<span>Erkaboyeva</span></a>
+            
+            <div class="lang-switcher">
+                <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">🌐 TILIMIZNI TANLANG</button>
+                <div class="lang-dropdown">
+                    <a href="#" class="lang-option" onclick="changeLang('uz')">🇺🇿 O'ZBEK</a>
+                    <a href="#!" class="lang-option" onclick="changeLang('ru')">🇷🇺 RUSSIAN</a>
+                    <a href="#!" class="lang-option" onclick="changeLang('en')">🇬🇧 ENGLISH</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-badge">
+                <i class="fas fa-calendar-check"></i>
+                <span><strong>📅 Arslon Eshigi</strong><br><span style="font-size: 14px;">26-iyuldan 12-avgustgacha</span></span>
+            </div>
+
+            <h1 id="heroTitle">SIZGA HAM PUL KEREKMI? <br><span class="highlight" id="highlightText">FAROVONLIKKA O'CHILGAN KADAM!</span></h1>
+            
+            <p id="heroDesc">Kechirib o'tilgan xatolar — bu yondashi. Farovonlik energiyasini boshqarish va yangi hayotni boshlash — imkoniyat!</p>
+
+            <div class="animate-on-scroll" style="margin-top: 50px; opacity: 1;">
+                <!-- ВИЗУАЛЬНЫЙ ЭЛЕМЕНТ -->
+                <div class="visual-element">
+                    <div class="mind-cloud">
+                        <i class="fas fa-brain"></i>
+                        <p id="mindText">O'NG G'O'RCHILGAN BOSH</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- УСЛУГИ -->
+    <section class="services-section">
+        <h2 class="section-title" id="servicesTitle">PLASTIK KARTA AKTIVATSIYASI</h2>
+
+        <div class="services-grid">
+            <!-- УСЛУГА 1 -->
+            <div class="service-card animate-on-scroll" data-aos-delay="0">
+                <div class="service-icon"><i class="fas fa-bolt"></i></div>
+                <h3 id="service1Title">KUTILMAGAN DAROMAD</h3>
+                <p id="service1Desc">Mijozlarimizning o'rtacha daromadi 3-4 oyda ikki baravar oshgan. Kartangizni faollashtirish — yangi imkoniyat!</p>
+            </div>
+
+            <!-- УСЛУГА 2 -->
+            <div class="service-card animate-on-scroll" data-aos-delay="100">
+                <div class="service-icon"><i class="fas fa-car"></i></div>
+                <h3 id="service2Title">OZQ VOSITALARNI O'RNATISH</h3>
+                <p id="service2Desc">Kartangizni faollashtirishdan so'ng, avtomobili va boshqa vositalarni olish uchun qulaylik!</p>
+            </div>
+
+            <!-- УСЛУГА 3 -->
+            <div class="service-card animate-on-scroll" data-aos-delay="200">
+                <div class="service-icon"><i class="fas fa-map-marked-alt"></i></div>
+                <h3 id="service3Title">ORZU SAYOYAT</h3>
+                <p id="service3Desc">O'zingizning orzuingizni bajarish uchun yangi hayot! Sayohat — o'zgarishni boshlashning eng yaxshi usuli!</p>
+            </div>
+
+            <!-- УСЛУГА 4 -->
+            <div class="service-card animate-on-scroll" data-aos-delay="300">
+                <div class="service-icon"><i class="fas fa-heart"></i></div>
+                <h3 id="service4Title">SEVGI ENERGIYASI</h3>
+                <p id="service4Desc">O'z hayotingizni o'zgartirish va boshqa qadamlarni qilish uchun sevgi energiyasi!</p>
+            </div>
+        </div>
+
+        <!-- ПРИМЕРНЫЙ ЭКРАН -->
+        <div class="visual-element" style="margin-top: 80px;">
+            <div class="mind-cloud">
+                <i class="fas fa-rocket"></i>
+                <p id="energyText">YANGI HAQIQIY SIZNING BOSHILASHI!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ЦЕНА (ОБЪЕДИНЕННАЯ) -->
+    <section class="price-section">
+        <h2 class="section-title" id="priceTitle">333,000 SO'M — BUGUN ULGURING!</h2>
+        
+        <div class="price-box animate-on-scroll" style="margin-top: 40px;">
+            <p class="price-label" id="priceLabel">BUGUN XIZMATNI TAYORLASH</p>
+            
+            <div class="price-tag" contenteditable="true">333,000 SO'M</div>
+        </div>
+    </section>
+
+    <!-- КОНТАКТЫ (Только 2 кнопки) -->
+    <section class="contacts-section">
+        <h2 class="section-title" id="contactsTitle">MUROJAAT QILISH USULLARI</h2>
+        
+        <div class="contacts-container">
+            <div class="contact-grid">
+                <!-- ТЕЛЕФОН (С КОПИРОВАНИЕМ) -->
+                <div class="contact-card" id="phoneContact" onclick="copyToClipboard('9860260104882162')">
+                    <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                    <h3 id="phoneLabel">ТЕЛЕФОН</h3>
+                    <p>+986 02 60 10 48 (Nargiza)</p>
+                </div>
+
+                <!-- TELEGRAM -->
+                <div class="contact-card" id="tgContact" onclick="copyToClipboard('@Samo_admini')">
+                    <div class="contact-icon"><i class="fab fa-telegram-plane"></i></div>
+                    <h3 id="tgLabel">TELEGRAM</h3>
+                    <p>@Samo_admini<br>@Nodirjonovna97</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <h3 class="footer-title" id="footerTitle">SIZGA MUROJAAT QILISH</h3>
+            
+            <p class="copyright">&copy; 2024 Nargiza Erkaboyeva | Barcha huquqlar himoyalangan</p>
+        </div>
+    </footer>
+
+    <!-- СКРИПТЫ (КОПИРОВАТЬ + ЯЗЫК) -->
+    <script>
+        // === ДАННЫЕ ДЛЯ ЯЗЫКА (ПОЛНЫЙ ФОНД) ===
+        const languages = {
+            uz: {
+                heroTitle: "SIZGA HAM PUL KEREKMI? <br><span class='highlight'>FAROVONLIKKA O'CHILGAN KADAM!</span>",
+                highlightText: "FAROVONLIKKA O'CHILGAN KADAM!",
+                heroDesc: "Kechirib o'tilgan xatolar — bu yondashi. Farovonlik energiyasini boshqarish va yangi hayotni boshlash — imkoniyat!",
+                mindText: "O'NG G'O'RCHILGAN BOSH",
+                energyText: "YANGI HAQIQIY SIZNING BOSHILASHI!",
+                servicesTitle: "PLASTIK KARTA AKTIVATSIYASI",
+                service1Title: "KUTILMAGAN DAROMAD",
+                service2Title: "OZQ VOSITALARNI O'RNATISH",
+                service3Title: "ORZU SAYOYAT",
+                service4Title: "SEVGI ENERGIYASI",
+                contactsTitle: "MUROJAAT QILISH USULLARI",
+                phoneLabel: "TELEFON",
+                tgLabel: "TELEGRAM",
+                priceLabel: "BUGUN XIZMATNI TAYORLASH",
+                footerTitle: "SIZGA MUROJAAT QILISH"
+            },
+            ru: {
+                heroTitle: "ВАС НУЖЕН ДОХОД? <br><span class='highlight'>ШАГ В БОГАТСТВО!</span>",
+                highlightText: "ШАГ В БОГАТСТВО!",
+                heroDesc: "Пропущенные ошибки — это ваш шанс. Управление благополучием и начало новой жизни — возможно!",
+                mindText: "ПРАВОЛЫ БЕРУЩИЙ",
+                energyText: "НОВОЕ ЖИЗНЕННО СЧАСТЬЕ!",
+                servicesTitle: "АКТИВАЦИЯ ПЛАСТИКАРТА",
+                service1Title: "НЕОЖИДАННЫЙ ДОХОД",
+                service2Title: "ПРЕДУПРЕЖДЕНИЕ ОСНАЩЕНИЯ",
+                service3Title: "ПОЭТРИЯ СЧАСТЬЯ",
+                service4Title: "ЛЮБОВНАЯ ЭНЕРГИЯ",
+                contactsTitle: "СПОСОБЫ СВЯЗИ",
+                phoneLabel: "ТЕЛЕФОН",
+                tgLabel: "ТЕЛЕГРАМ",
+                priceLabel: "ГОДНЫЙ СДЕЛАТЬ УСЛУГУ",
+                footerTitle: "СВЯЗЬ С НИМ"
+            },
+            en: {
+                heroTitle: "DO YOU NEED MONEY? <br><span class='highlight'>STEP INTO WEALTH!</span>",
+                highlightText: "STEP INTO WEALTH!",
+                heroDesc: "Missed mistakes are your chance. Managing well-being and starting a new life is possible!",
+                mindText: "MIND CLARITY",
+                energyText: "NEW TRUE LIFE STARTING!",
+                servicesTitle: "PLASTIC CARD ACTIVATION",
+                service1Title: "UNEXPECTED INCOME",
+                service2Title: "VEHICLE EQUIPPMENT",
+                service3Title: "DREAM TRAVEL",
+                service4Title: "LOVE ENERGY",
+                contactsTitle: "CONTACT METHODS",
+                phoneLabel: "PHONE",
+                tgLabel: "TELEGRAM",
+                priceLabel: "PREPARE SERVICE TODAY",
+                footerTitle: "CONTACT NOW"
+            }
+        };
+
+        let currentLang = 'uz';
+
+        // === ФУНКЦИЯ КОПИРОВАТЬ ===
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification('✓ СКОПИРОВАНО: ' + text);
+            }).catch(err => {
+                console.error('Ошибка копирования:', err);
+                alert('Не удалось скопировать: ' + text);
+            });
+        }
+
+        // === NOTIFICATION (УВЕДОМЛЕНИЕ) ===
+        let notificationTimeout;
+        function showNotification(message) {
+            clearTimeout(notificationTimeout);
+            
+            const notification = document.createElement('div');
+            notification.style.position = 'fixed';
+            notification.style.top = '80px';
+            notification.style.left = '50%';
+            notification.style.transform = 'translateX(-50%)';
+            notification.style.background = 'rgba(255, 91, 219, 0.9)';
+            notification.style.backdropFilter = 'blur(10px)';
+            notification.style.padding = '16px 32px';
+            notification.style.borderRadius = '30px';
+            notification.style.zIndex = '999';
+            notification.style.color = 'white';
+            notification.style.fontWeight = '700';
+            notification.style.boxShadow = '0 15px 40px rgba(255, 91, 219, 0.4)';
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.transition = 'all 0.5s ease';
+                notification.style.opacity = '0';
+                setTimeout(() => notification.remove(), 500);
+            }, 2000);
+
+            notificationTimeout = setTimeout(() => {}, 3000);
+        }
+
+        // === ФУНКЦИЯ СМЕНЯ ЯЗЫК (ПО ВСЕМ ЭЛЕМЕНТАМ) ===
+        function changeLang(lang) {
+            currentLang = lang;
+            
+            const translations = languages[lang];
+            
+            // Заменить текст по элементам ID
+            document.getElementById('heroTitle').innerHTML = translations.heroTitle;
+            document.getElementById('highlightText').textContent = translations.highlightText;
+            document.getElementById('heroDesc').textContent = translations.heroDesc;
+            document.getElementById('mindText').textContent = translations.mindText;
+            document.getElementById('energyText').textContent = translations.energyText;
+            document.getElementById('servicesTitle').textContent = translations.servicesTitle;
+            document.getElementById('service1Title').textContent = translations.service1Title;
+            document.getElementById('service2Title').textContent = translations.service2Title;
+            document.getElementById('service3Title').textContent = translations.service3Title;
+            document.getElementById('service4Title').textContent = translations.service4Title;
+            document.getElementById('contactsTitle').textContent = translations.contactsTitle;
+            document.getElementById('phoneLabel').textContent = translations.phoneLabel;
+            document.getElementById('tgLabel').textContent = translations.tgLabel;
+            document.getElementById('priceLabel').textContent = translations.priceLabel;
+            document.getElementById('footerTitle').textContent = translations.footerTitle;
+            
+            // Заменить текст кнопки языка
+            document.getElementById('langBtn').textContent = lang === 'uz' ? '🌐 OZBEKCHANA TAYINLAISH' : 
+                                                        lang === 'ru' ? '🇷🇺 RUSSIAN' : '🇬🇧 ENGLISH';
+            
+            // Перемотка к началу страницы при смене языка
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // === TOGGLE LANGUAGE (ПОКАЗАТЬ МОДЕЛЬ) ===
+        function toggleLanguage() {
+            const langBtn = document.getElementById('langBtn');
+            let index = (currentLang === 'uz' ? 0 : currentLang === 'ru' ? 1 : 2);
+            
+            if (index >= 2) {
+                currentLang = 'uz';
+                langBtn.textContent = '🇺🇿 OZBEK';
+                goToTop();
+                changeLang('uz');
+                return;
+            } else {
+                currentLang = ['uz', 'ru', 'en'][index + 1];
+                if (currentLang === 'uz') {
+                    langBtn.textContent = '🌐 TILIMIZNI TANLANG';
+                } else if (currentLang === 'ru') {
+                    langBtn.textContent = '🇷🇺 RUSSIAN';
+                } else {
+                    langBtn.textContent = '🇬🇧 ENGLISH';
+                }
+                goToTop();
+            }
+        }
+
+        // === SCROLL ANIMATION (АНИМАЦИЯ ПО КАЖДОМУ ЭЛЕМЕНТУ) ===
+        const observerOptions = { threshold: 0.1, rootMargin: '-100px' };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .price-box, .visual-element').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // === ФУНКЦИЯ ПОЕХКА К ВЕРХУ (ВЕРНУТЬСЯ НА ТОЧКУ) ===
+        function goToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
